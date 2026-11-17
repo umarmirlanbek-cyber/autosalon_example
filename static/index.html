@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garage Bishkek — соберите свою Impreza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<script type="importmap">
+{"imports":{
+ "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+ "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/">Garage Bishkek</a>
+  <nav><a href="#configurator">Конструктор</a><a href="#stock">В наличии</a><a href="#contacts">Контакты</a></nav>
+</header>
+
+<main>
+<section id="configurator" class="cfg">
+  <div class="view">
+    <div id="stage" aria-label="3D-модель автомобиля"></div>
+    <div class="cams">
+      <button data-cam="front">Спереди</button>
+      <button data-cam="side">Сбоку</button>
+      <button data-cam="rear">Сзади</button>
+    </div>
+    <h1>Соберите свою Impreza.<br>Покажем, как она будет выглядеть.</h1>
+  </div>
+
+  <aside class="panel">
+    <div id="options"></div>
+    <div class="total">
+      <div><span>Итого</span><strong id="total">—</strong></div>
+      <button id="open-lead" class="cta">Отправить сборку менеджеру</button>
+    </div>
+  </aside>
+</section>
+
+<section id="stock" class="stock">
+  <h2>Автомобили в наличии</h2>
+  <ul id="inventory"></ul>
+</section>
+</main>
+
+<footer id="contacts">
+  <p>Бишкек, пр. Чуй 100 · Ежедневно 9:00–20:00</p>
+  <p><a href="tel:+996000000000">+996 000 000 000</a></p>
+</footer>
+
+<dialog id="lead">
+  <form method="dialog" id="lead-form">
+    <h3>Отправить сборку менеджеру</h3>
+    <p id="lead-summary"></p>
+    <label>Имя<input name="name" required minlength="2" autocomplete="name"></label>
+    <label>Телефон<input name="phone" required minlength="5" type="tel" autocomplete="tel"></label>
+    <label>Комментарий<textarea name="comment" rows="2"></textarea></label>
+    <p id="lead-msg" role="status"></p>
+    <div class="row">
+      <button type="button" id="lead-close" class="ghost">Закрыть</button>
+      <button type="submit" class="cta">Отправить</button>
+    </div>
+  </form>
+</dialog>
+
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>
